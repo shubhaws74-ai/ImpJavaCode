@@ -13,5 +13,9 @@ public class NonRepeatingChar {
                break;
            }
        }
+         char ch=s.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(c->c,Collectors.counting())).entrySet().stream().
+         filter(i->i.getValue()==1).map(i->i.getKey()).findFirst().orElse(null);
+       System.out.println(ch);
+
     }
 }
